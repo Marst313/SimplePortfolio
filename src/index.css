@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white: 238 238 238;
+}
+
+body {
+  @apply bg-gradient-to-b from-bg_primary_slate to-indigo-900 h-screen overflow-hidden;
+}
+main {
+  @apply container mx-auto justify-center items-center py-10 flex-col px-5 place-items-center  box-border w-4/5 flex h-screen  lg:-mt-20;
+}
+section {
+  @apply my-2 w-full bg-primary_orange rounded-xl flex justify-center items-center overflow-hidden;
+}
+
+h1 {
+  @apply text-white font-moonDance text-sm lg:text-2xl uppercase tracking-widest text-center;
+}
+h2 {
+  @apply text-white font-moonDance tracking-widest  text-xs px-5 md:text-lg text-left;
+}
+
+.shadow-custom {
+  box-shadow: 5px 5px 5px black;
+}
+
+.gradient {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px 5px white;
+}

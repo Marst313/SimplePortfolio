@@ -1,0 +1,213 @@
+.hero-container {
+  @apply lg:w-1/2 -mt-20 lg:mt-0;
+
+  &:hover > img {
+    @apply opacity-100 transition-all duration-500;
+  }
+
+  & > img {
+    @apply h-24 opacity-50 lg:h-52 w-24 lg:w-52 scale-[1.1];
+  }
+}
+
+/* !NAME */
+.flip-card {
+  @apply bg-transparent border-2 border-primary_orange lg:w-1/2 h-24 lg:h-52;
+
+  & img {
+    @apply h-16 lg:h-24 mx-auto;
+  }
+  &:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.flip-card-inner {
+  @apply relative w-full h-full text-center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  @apply absolute flex flex-col justify-center w-full h-full;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+/* !NAME */
+
+/* !SKILLS */
+.skills-container {
+  @apply bg-transparent border-2 border-primary_orange h-24 lg:w-1/2  lg:h-44;
+}
+.container-rounded {
+  @apply absolute flex justify-between items-center w-full h-full gap-5 py-5 px-10 flex-wrap transition-all;
+}
+/* !SKILLS */
+
+.about-container {
+  @apply w-1/2 bg-transparent border-2 border-primary_orange h-14 lg:h-40;
+}
+.projects-container {
+  @apply bg-transparent border-2 border-primary_orange lg:w-1/2 h-40;
+}
+
+/* !CV */
+.cv-container {
+  @apply h-10 lg:w-1/2 lg:h-44 w-1/2;
+}
+
+/* !CV */
+
+/*! CONTACT */
+.card {
+  @apply h-10 lg:w-1/2 lg:h-44 relative flex items-center justify-center overflow-hidden w-1/2 bg-bg_primary_slate;
+
+  & h1 {
+    @apply absolute opacity-100 z-[2];
+    transition: opacity 0.25s;
+  }
+  & img {
+    @apply w-5 h-5 lg:h-6 lg:w-6;
+  }
+  &::before {
+    @apply bg-primary_orange left-0 justify-end absolute flex items-center w-1/2 h-full;
+    content: '';
+    transition: 0.25s linear;
+    z-index: 1;
+  }
+  &::after {
+    @apply bg-orange-900 right-0 justify-start absolute flex items-center w-1/2 h-full z-[1];
+    content: '';
+    transition: 0.25s linear;
+  }
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+    & h1 {
+      @apply opacity-0 z-[-3];
+    }
+    &::before {
+      @apply opacity-50 -translate-y-full;
+    }
+    &::after {
+      @apply opacity-50 translate-y-full;
+    }
+  }
+}
+.social-link {
+  @apply relative flex items-center justify-center w-1/4 h-full text-white text-2xl no-underline;
+  transition: 0.25s;
+
+  &:hover {
+    @apply animate-bounce613 bg-white;
+  }
+}
+/*! CONTACT */
+
+.container-experience_page {
+  @apply flex items-center flex-col overflow-hidden;
+
+  & > h1 {
+    @apply text-2xl;
+  }
+  & > div {
+    @apply max-w-sm relative lg:max-w-2xl;
+
+    & > h1 {
+      @apply absolute left-2 md:-left-10  text-[3rem] top-8 text-primary_orange font-bold;
+    }
+  }
+  & ol {
+    @apply relative border-l border-gray-200 dark:border-gray-700 mt-5 w-72;
+    & li {
+      @apply mb-10 ml-4;
+
+      & > div {
+        @apply absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700;
+      }
+      & > time {
+        @apply mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500;
+      }
+      & > h3 {
+        @apply text-lg font-semibold text-gray-900 dark:text-white;
+      }
+      & > p {
+        @apply mb-4 text-base font-normal text-gray-500;
+      }
+    }
+  }
+}
+
+/* COMPONENT BUTTON */
+
+.btn-go {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+.btn-go {
+  --primary-color: #111;
+  --hovered-color: #0079ff;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-go a {
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  color: white;
+}
+
+.btn-go::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.btn-go a::before {
+  position: absolute;
+  /*   box-sizing: border-box; */
+  content: 'Demo';
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.btn-go:hover::after {
+  width: 100%;
+}
+
+.btn-go:hover a::before {
+  width: 100%;
+}
+
+.btn-go:hover svg {
+  transform: translateX(4px);
+  color: var(--hovered-color);
+}
+
+.btn-go svg {
+  color: white;
+  transition: 0.2s;
+  position: relative;
+  width: 15px;
+  transition-delay: 0.2s;
+}
